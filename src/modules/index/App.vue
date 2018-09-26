@@ -1,11 +1,11 @@
 <template>
   <div class="app">
-    <img src="../../common/images/A01_新小程序首页_中秋佳节_banner_750x600px.png" class="w-full" alt="">
+    <img lowsrc="../../common/images/A01_新小程序首页_中秋佳节_banner_750x600px.png" src="../../common/images/A01_新小程序首页_中秋佳节_banner_750x600px@3x.png" class="w-full" alt="">
     <p class="get-tip">您可以通过以下方式获得观看资格：</p>
     <p class="text-center">
-      <img class="small-circle" src="../../../static/images/组 31.png" alt="">
+      <img class="small-circle" src="../../common/images/组 31.png" alt="">
     </p>
-    <img class="activity-detail" src="../../common/images/组 3@2x.png" alt="">
+    <img class="activity-detail" lowsrc="../../common/images/组 3.png" src="../../common/images/组 3@3x.png" alt="">
   </div>
 </template>
 
