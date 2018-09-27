@@ -8,6 +8,7 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
+    // 设置成七牛地址
     assetsPublicPath: cdnConfig.host,
     productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as

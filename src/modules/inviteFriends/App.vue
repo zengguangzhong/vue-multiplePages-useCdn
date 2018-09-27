@@ -1,17 +1,24 @@
 <template>
   <div class="app">
     <!-- 邀请好友助力 -->
+    <img lowsrc="../../common/images/index_banner.png" src="../../common/images/banner.png" class="w-full" alt="">
+    <inviteStatus></inviteStatus>
+    <countDown endTime="2018.9.28"></countDown>
+    <eventDescription :rules="selfData.activeRules"></eventDescription>
   </div>
 </template>
 
-<script type="text/ecmascript-6">
-  import inviteFriends from './data.js'
+<script>
+  import selfData from './data.js'
+  import inviteStatus from './components/inviteStatus.vue'
   export default {
-    data() {
-      return {
-        inviteFriends
-      }
-    }
+  	components: {inviteStatus},
+  	data() {
+  		return {
+  			selfData,
+  			fdsf: 'fsd'
+  		}
+  	}
   }
 </script>
 

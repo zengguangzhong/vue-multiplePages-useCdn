@@ -1,12 +1,12 @@
 <template>
   <div>
-
+ff
   </div>
 </template>
 
 <script>
   export default {
-  	name: 'asistMember',
+  	name: 'countDown',
   	props: {
   		propName: {
   			type: Number,

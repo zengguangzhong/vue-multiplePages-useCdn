@@ -27,7 +27,8 @@ module.exports = {
             "error",
             "never"
         ],
-        'indent':0,
+        "indent": [2, "tab"],
+        "no-tabs": 0,
         'space-before-function-paren':0,
         'eol-last':0
     }

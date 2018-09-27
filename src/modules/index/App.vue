@@ -1,29 +1,56 @@
 <template>
   <div class="app">
-    <img lowsrc="../../common/images/A01_新小程序首页_中秋佳节_banner_750x600px.png" src="../../common/images/A01_新小程序首页_中秋佳节_banner_750x600px@3x.png" class="w-full" alt="">
-    <p class="get-tip">您可以通过以下方式获得观看资格：</p>
-    <p class="text-center">
-      <img class="small-circle" src="../../common/images/组 31.png" alt="">
+    <img lowsrc="../../common/images/index_banner.png" src="../../common/images/index_banner@2x.png" class="w-full" alt="">
+    <p class="get-tip f14 m-t-lg">您可以通过以下方式获得观看资格：</p>
+    <p class="m-t-l">
+      <customBtn href="inviteFriends.html">
+        <img src="../../common/images/free_get@2x.png"  alt="">
+      </customBtn>
     </p>
-    <img class="activity-detail" lowsrc="../../common/images/组 3.png" src="../../common/images/组 3@3x.png" alt="">
+    <p class="or f14 m-t-xs text-center">或</p>
+    <p class="m-t">
+      <customBtn :opts="directBtnOpt"></customBtn>
+    </p>
+    <p class="small-circle text-center m-t">
+      <img src="../../common/images/small_circle.png" alt="">
+    </p>
+    <img class="w-full m-t-sm" lowsrc="../../common/images/detail.png" src="../../common/images/detail@2x.png" alt="">
   </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
   export default {
+  	data() {
+  		return {
+  			directBtnOpt: {
+  				height: 50,
+  				detail: [{
+  					text: '演出地点:成都',
+  					size: 12,
+  					color: '#EA274A',
+  					mt: 5
+  				}, {
+  					text: '购买现场票',
+  					size: 19,
+  					color: '#EA274A',
+  					mt: 4,
+  					bold: true
+  				}]
+  			}
+  		}
+  	},
+  	methods: {
+  	},
+  	mounted() {
+  	}
   }
 </script>
 
 <style <style lang="less" scoped>
   .get-tip{
-    font-size: 14px;
-    margin-top: 15px;
     margin-left: 9.5px;
   }
-  .small-circle{
-    margin-top: 10px;
-  }
-  .activity-detail{
-    width: 100%;
+  .or{
+    color: #E70830;
   }
 </style>
