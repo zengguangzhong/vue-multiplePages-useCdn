@@ -20,29 +20,29 @@
 
 <script>
   export default {
-  	data() {
-  		return {
-  			directBtnOpt: {
-  				height: 50,
-  				detail: [{
-  					text: '演出地点:成都',
-  					size: 12,
-  					color: '#EA274A',
-  					mt: 5
-  				}, {
-  					text: '购买现场票',
-  					size: 19,
-  					color: '#EA274A',
-  					mt: 4,
-  					bold: true
-  				}]
-  			}
-  		}
-  	},
-  	methods: {
-  	},
-  	mounted() {
-  	}
+    data() {
+      return {
+        directBtnOpt: {
+          height: 50,
+          detail: [{
+            text: '演出地点:成都',
+            size: 12,
+            color: '#EA274A',
+            mt: 5
+          }, {
+            text: '购买现场票',
+            size: 19,
+            color: '#EA274A',
+            mt: 4,
+            bold: true
+          }]
+        }
+      }
+    },
+    methods: {
+    },
+    mounted() {
+    }
   }
 </script>
 

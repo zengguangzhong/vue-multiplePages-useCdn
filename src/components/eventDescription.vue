@@ -23,27 +23,27 @@
 
 <script>
   export default {
-  	name: 'eventDescription',
-  	props: {
-  		rules: {
-  			type: Object,
-  			default() {
-  				return {
-  					detail: [], weight: []
-  				}
-  			}
-  		}
-  	},
-  	mounted() {
-  		console.log(this.rules)
-  	},
-  	methods: {
-  		adjustDetail(item, index) {
-  			let str = index + 1
-  			item = item.replace(this.rules.weight, v => `<span style="background:#cdeaee">${v}</span>`)
-  			return str + '、' + item
-  		}
-  	}
+    name: 'eventDescription',
+    props: {
+      rules: {
+        type: Object,
+        default() {
+          return {
+            detail: [], weight: []
+          }
+        }
+      }
+    },
+    mounted() {
+      console.log(this.rules)
+    },
+    methods: {
+      adjustDetail(item, index) {
+        const str = index + 1
+        item = item.replace(this.rules.weight, v => `<span style="background:#cdeaee">${v}</span>`)
+        return str + '、' + item
+      }
+    }
   
   }
 </script>
