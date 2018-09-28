@@ -1,12 +1,22 @@
 <template>
   <div class="app">
-    <h2>首页</h2>
-    <a href="/user.html?uid=353907887">跳转到用户中心</a>
+    <!-- 邀请好友助力 -->
+    <img lowsrc="../../common/images/index_banner.png" src="../../common/images/banner.png" class="w-full" alt="">
+    <inviteStatus></inviteStatus>
+    <eventDescription :rules="selfData.activeRules"></eventDescription>
   </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
+  import selfData from './data.js'
+  import inviteStatus from './components/inviteStatus.vue'
   export default {
+    components: { inviteStatus },
+    data() {
+      return {
+        selfData
+      }
+    }
   }
 </script>
 

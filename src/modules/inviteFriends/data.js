@@ -23,7 +23,13 @@ export default {
       }]
     },
     noPeopleAndStart: {
-
+      height: 48,
+      detail: [{
+        text: '9.9元直接购买',
+        size: 21,
+        bold: true,
+        color: '#EA274A'
+      }]
     },
     hasPeopleButNotSuccess: {
       continue: {

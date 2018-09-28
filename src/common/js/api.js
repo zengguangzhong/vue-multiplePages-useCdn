@@ -2,7 +2,7 @@
  * @Author: Jerry.chenshisong
  * @Date: 2018-09-27 15:08:57
  * @Last Modified by: Jerry.chenshisong
- * @Last Modified time: 2018-09-28 18:27:17
+ * @Last Modified time: 2018-09-28 23:46:20
  * api接口
  */
 
@@ -38,11 +38,11 @@ export const getActiveInfo = params => {
 	// 这个活动的id，防止多个助力活动同时发起，本地存储混乱的问题
     id: 'bcsugjnbuiv1hvt3omer',
 	// 结束时间，这个时间一般是固定的，也可以放到本地存储，不需要多次请求，过了时间可以clear这个
-    endTime: '2018.9.29',
+    endTime: '2018.9.28',
 	// 需要助力的人数
     needFriendsNumber: 3,
 	// 直接购买的价格
-    directBuyPrice: 9.9,
+    directBuyPrice: 19.9,
 	// 自己的信息，在帮助别人和发起助力时需要自己的信息
     userInfo: {
       id: 'bcsugjnbuiv1hvt3omcg',

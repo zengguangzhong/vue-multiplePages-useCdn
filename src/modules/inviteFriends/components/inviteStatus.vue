@@ -19,13 +19,28 @@
 		</div>
 		<div v-if="status==='noPeopleAndStart'">
 			<p class="m-t-l text-center">
-        <img src="../../../common/images/invite_btn.png"  alt="">
+        <customBtn>
+          <img src="../../../common/images/invite_btn.png"  alt="">
+        </customBtn>
     	</p>
     <p class="or f14 m-t-xs text-center">或</p>
     <p class="m-t">
-      <customBtn :opts="directBtnOpt"></customBtn>
+      <customBtn :opts="btn[status]"></customBtn>
     </p>
 		</div>
+    <div v-if="status==='noPeopleAndEnd'">
+      <p class="direct-bug-tip f14 color333 m-t">您可以选择直接购买:</p>
+      <p class="m-t-l text-center">
+        <customBtn>
+          <img src="../../../common/images/invite_btn.png"  alt="">
+        </customBtn>
+    	</p>
+      <p class="or f14 m-t-xs text-center">或</p>
+      <p class="m-t">
+        <customBtn :opts="btn['noPeopleAndStart']"></customBtn>
+      </p>
+      <popup ></popup>
+    </div>
   </div>
 </template>
 
@@ -33,8 +48,10 @@
 import util from '../../../common/js/utils.js'
 import { getActiveInfo } from '../../../common/js/api.js'
 import selfData from '../data.js'
+import popup from '../../../components/popup'
 export default {
   name: 'inviteStatus',
+  components: { popup },
   props: {
     propName: {
       type: Number,
@@ -55,6 +72,9 @@ export default {
     async init() {
       this.basicInfo = await getActiveInfo()
       util.setStore(this.basicInfo)
+      this.btn.noPeopleAndStart.detail[0].text = `${
+        this.basicInfo.directBuyPrice
+      } 元直接购买`
       this.computedStatus()
     },
     // 助力状态
@@ -86,4 +106,7 @@ export default {
 </script>
 
 <style scoped>
+.direct-bug-tip{
+  margin-left: 19px;
+}
 </style>
