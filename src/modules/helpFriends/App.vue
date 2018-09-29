@@ -1,17 +1,17 @@
 <template>
   <div class="app">
     <!-- 邀请好友助力 -->
-    <img lowsrc="../../common/images/index_banner.png" src="../../common/images/banner.png" class="w-full" alt="">
-    <inviteStatus></inviteStatus>
+    <img lowsrc="../../common/images/index_banner.png" src="../../common/images/share.png" class="w-full" alt="">
+    <helpStatus></helpStatus>
     <eventDescription :rules="selfData.activeRules"></eventDescription>
   </div>
 </template>
 
 <script>
   import selfData from './data.js'
-  import inviteStatus from './components/inviteStatus.vue'
+  import helpStatus from './components/helpStatus.vue'
   export default {
-    components: { inviteStatus },
+    components: { helpStatus },
     data() {
       return {
         selfData

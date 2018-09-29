@@ -6,7 +6,7 @@
 			<span class="line"></span>
 		</p>
 		<div style="margin-top:15px">
-			<img :src="item.avatar" alt="" v-for="item in avatarList" :key="item.id" >
+			<img :src="item.avatar" alt="" v-for="(item,index) in avatarList" :key="item.id" v-if="index<=need">
 			<span class="empty-avatar">?</span>
 		</div>
 		<p class="boost-tip color333" v-html="boostTip"></p>
@@ -35,6 +35,8 @@
 		// noPeopleAndStart:没有好友助力等待好友助力
 		// success:成功了
 		// hasPeopleButNotSuccess:有朋友助力但是没有成功
+		// hasHelpHe:已助力
+		// notHelpHe:未助力
       status: {
         type: String,
         default: 'hasPeopleButNotSuccess'
@@ -48,6 +50,7 @@
       boostTip() {
         const tipObj = {
           hasPeopleButNotSuccess: `还差<span style="color:#EC294C;margin: 0 4px;">${this.need - this.avatarList.length}</span>人助力免费领取`,
+          notHelpHe: `还差<span style="color:#EC294C;margin: 0 4px;">${this.need - this.avatarList.length}</span>人助力免费领取`,
           success: `恭喜你，助力成功`,
           hasPeopleAndEnd: `好可惜，差一点就助力成功了`,
           hasHelpHe: `<span style="color:#EC294C">已助力<span>`

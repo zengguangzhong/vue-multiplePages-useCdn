@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <div class="mask-layer" :style="{display:visible?'inline-block':'none'}">
+  <div :style="{display:visible?'inline-block':'none'}">
+    <div class="mask-layer" >
     </div>
-    <div class="popup-content" :style="{display:visible?'inline-block':'none'}">
+    <div class="popup-content" >
       <div style="margin:10.5px">
         <p class="close clearfix">
           <img src="../common/images/close (1).png" alt="" @click="close">
@@ -19,16 +19,27 @@
 
 <script>
   export default {
+    props: {
+      visible: {
+        type: Boolean,
+        default: false
+      }
+    },
     data() {
       return {
-        visible: true
+        popupVisible: false
       }
     },
     methods: {
       close() {
-        this.visible = false
+        this.popupVisible = false
+        this.$emit('close')
       }
+    },
+    mounted() {
+      this.popupVisible = this.visible
     }
+  
   }
 </script>
 

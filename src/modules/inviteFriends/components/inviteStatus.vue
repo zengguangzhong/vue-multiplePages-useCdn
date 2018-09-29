@@ -23,7 +23,7 @@
           <img src="../../../common/images/invite_btn.png"  alt="">
         </customBtn>
     	</p>
-    <p class="or f14 m-t-xs text-center">或</p>
+    <p class="or f14 m-t-xs text-center color-red">或</p>
     <p class="m-t">
       <customBtn :opts="btn[status]"></customBtn>
     </p>
@@ -32,14 +32,14 @@
       <p class="direct-bug-tip f14 color333 m-t">您可以选择直接购买:</p>
       <p class="m-t-l text-center">
         <customBtn>
-          <img src="../../../common/images/invite_btn.png"  alt="">
+          <img src="../../../common/images/invite_btn.png" v-tap="{methods:showNotPopup}" alt="">
         </customBtn>
     	</p>
-      <p class="or f14 m-t-xs text-center">或</p>
+      <p class="or f14 m-t-xs text-center color-red">或</p>
       <p class="m-t">
         <customBtn :opts="btn['noPeopleAndStart']"></customBtn>
       </p>
-      <popup ></popup>
+      <popup :visible="popupVisible" @close="()=>popupVisible = false"></popup>
     </div>
   </div>
 </template>
@@ -62,7 +62,8 @@ export default {
     return {
       basicInfo: {},
       status: '',
-      btn: selfData.btn
+      btn: selfData.btn,
+      popupVisible: true
     }
   },
   mounted() {
@@ -70,12 +71,25 @@ export default {
   },
   methods: {
     async init() {
-      this.basicInfo = await getActiveInfo()
-      util.setStore(this.basicInfo)
+      const store = JSON.parse(util.getStore('hopoActiveInfo'))
+      // 避免高频刷新增加服务器压力
+      if (store && (new Date() - new Date(store.getTime)) < 5000) {
+        this.basicInfo = store
+      } else {
+        this.basicInfo = await getActiveInfo()
+        this.basicInfo.getTime = new Date()
+      }
+
+      util.setStore(this.basicInfo, 'hopoActiveInfo')
       this.btn.noPeopleAndStart.detail[0].text = `${
         this.basicInfo.directBuyPrice
       } 元直接购买`
       this.computedStatus()
+    },
+    showNotPopup() {
+      console.log('fd1', this.popupVisible)
+      this.popupVisible = true
+      console.log('fd', this.popupVisible)
     },
     // 助力状态
     // hasPeopleAndEnd:有好友助力，但是已结束

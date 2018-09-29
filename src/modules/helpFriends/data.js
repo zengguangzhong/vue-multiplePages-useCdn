@@ -12,12 +12,12 @@ const activeRules = {
 export default {
   activeRules,
   btn: {
-    hasPeopleAndEnd: {
+    notHelpHe: {
       height: 42,
       bgColor: 'linear-gradient(to top, #E6042C, #F3536F)',
       borderColor: '#fff',
       detail: [{
-        text: '去看看其他亲子福利',
+        text: '帮Ta助力',
         size: 18,
         color: '#fff'
       }]
@@ -31,22 +31,22 @@ export default {
         color: '#EA274A'
       }]
     },
-    hasPeopleButNotSuccess: {
-      continue: {
+    hasHelpHe: {
+      meTo: {
         height: 42,
         bgColor: 'linear-gradient(to top, #E6042C, #F3536F)',
         borderColor: '#fff',
         detail: [{
-          text: '继续邀请好友帮忙助力',
+          text: '我也要免费看剧',
           size: 18,
           color: '#fff'
         }]
       },
-      direct: {
+      seeOther: {
         height: 42,
         borderColor: 'rgba(236,41,76,1)',
         detail: [{
-          text: '不差钱，想直接购买',
+          text: '去看看其他亲子福利',
           size: 18,
           color: '#EC294C'
         }]

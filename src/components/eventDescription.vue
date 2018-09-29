@@ -51,6 +51,7 @@
 <style lang="less" scoped>
   .event-rules{
     margin-top: 15px;
+    margin-bottom: 10px;
     padding: 0 10px;
     .detail{
       margin-left: 11px;

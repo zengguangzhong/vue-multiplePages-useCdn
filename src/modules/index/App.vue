@@ -7,7 +7,7 @@
         <img src="../../common/images/free_get@2x.png"  alt="">
       </customBtn>
     </p>
-    <p class="or f14 m-t-xs text-center">或</p>
+    <p class="or f14 m-t-xs text-center color-red">或</p>
     <p class="m-t">
       <customBtn :opts="directBtnOpt"></customBtn>
     </p>
@@ -19,31 +19,32 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        directBtnOpt: {
-          height: 50,
-          detail: [{
-            text: '演出地点:成都',
-            size: 12,
-            color: '#EA274A',
-            mt: 5
-          }, {
-            text: '购买现场票',
-            size: 19,
-            color: '#EA274A',
-            mt: 4,
-            bold: true
-          }]
-        }
+export default {
+  data() {
+    return {
+      directBtnOpt: {
+        height: 50,
+        detail: [{
+          text: '演出地点:成都',
+          size: 12,
+          color: '#EA274A',
+          mt: 5
+        }, {
+          text: '购买现场票',
+          size: 19,
+          color: '#EA274A',
+          mt: 4,
+          bold: true
+        }]
       }
-    },
-    methods: {
-    },
-    mounted() {
     }
+  },
+  methods: {
+  },
+  mounted() {
+
   }
+}
 </script>
 
 <style <style lang="less" scoped>

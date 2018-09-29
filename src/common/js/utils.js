@@ -3,20 +3,27 @@
  */
 
 export default {
-  // 获取localstorage
-  getStore(name = 'hupoBoostFreeBasic') {
-    return localStorage.getItem(name)
+  /**
+   * 存储localStorage
+   */
+  setStore(content, name = 'hopoBoost') {
+    if (typeof content !== 'string') {
+      content = JSON.stringify(content)
+    }
+    window.localStorage.setItem(name, content)
   },
-  // 设置localstorage
-  setStore(opt, name = 'hupoBoostFreeBasic') {
-    return localStorage.setItem(name, opt)
+
+  /**
+   * 获取localStorage
+   */
+  getStore(name = 'hopoBoost') {
+    return window.localStorage.getItem(name)
   },
-  // 移除localstorage
-  rmStore(name = 'hupoBoostFreeBasic') {
-    return localStorage.removeItem(name)
-  },
-  // 清空 localstorage
-  clearStore() {
-    return localStorage.clear()
+
+  /**
+   * 删除localStorage
+   */
+  removeStore(name = 'hopoBoost') {
+    window.localStorage.removeItem(name)
   }
 }
