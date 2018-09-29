@@ -80,7 +80,7 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 
-app.all('*', function(req, res, next){
+app.all(['/getHelpOtherList','/getActiveInfo'], function(req, res, next){
   res.set('Cache-Control','public,max-age=6')
   if ((new Date().getTime() - req.headers['if-modified-since'] )< 10) {
     // 检查时间戳

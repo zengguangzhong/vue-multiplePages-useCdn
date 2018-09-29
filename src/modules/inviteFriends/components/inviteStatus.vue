@@ -71,20 +71,24 @@ export default {
   },
   methods: {
     async init() {
-      const store = JSON.parse(util.getStore('hopoActiveInfo'))
-      // 避免高频刷新增加服务器压力
-      if (store && (new Date() - new Date(store.getTime)) < 5000) {
-        this.basicInfo = store
-      } else {
-        this.basicInfo = await getActiveInfo()
-        this.basicInfo.getTime = new Date()
-      }
+      try {
+        const store = JSON.parse(util.getStore('hopoActiveInfo'))
+          // 避免高频刷新增加服务器压力
+        if (store && (new Date() - new Date(store.getTime)) < 5000) {
+          this.basicInfo = store
+        } else {
+          this.basicInfo = await getActiveInfo()
+          this.basicInfo.getTime = new Date()
+        }
 
-      util.setStore(this.basicInfo, 'hopoActiveInfo')
-      this.btn.noPeopleAndStart.detail[0].text = `${
-        this.basicInfo.directBuyPrice
-      } 元直接购买`
-      this.computedStatus()
+        util.setStore(this.basicInfo, 'hopoActiveInfo')
+        this.btn.noPeopleAndStart.detail[0].text = `${
+            this.basicInfo.directBuyPrice
+          } 元直接购买`
+        this.computedStatus()
+      } catch (error) {
+        console.log(error)
+      }
     },
     showNotPopup() {
       console.log('fd1', this.popupVisible)
