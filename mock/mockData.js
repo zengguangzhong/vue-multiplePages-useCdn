@@ -4,7 +4,7 @@ module.exports = {
     // 这个活动的id，防止多个助力活动同时发起，本地存储混乱的问题
     id: 'bcsugjnbuiv1hvt3omer',
   // 结束时间，这个时间一般是固定的，也可以放到本地存储，不需要多次请求，过了时间可以clear这个
-    endTime: '2018.9.30',
+    endTime: '2018.10.1',
   // 需要助力的人数
     needFriendsNumber: 5,
   // 直接购买的价格
@@ -26,7 +26,7 @@ module.exports = {
   helpMeInfo: {
     id: 'bcsugjnbuiv1hvt3omer',
       // 结束时间，这个时间一般是固定的，也可以放到本地存储，不需要多次请求，过了时间可以clear这个
-    endTime: '2018.9.30',
+    endTime: '2018.10.1',
       // 需要助力的人数
     needFriendsNumber: 5,
       // 直接购买的价格

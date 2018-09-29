@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="app" @touchmove.prevent>
     <!-- 邀请好友助力 -->
     <img lowsrc="../../common/images/index_banner.png" src="../../common/images/banner.png" class="w-full" alt="">
     <inviteStatus></inviteStatus>

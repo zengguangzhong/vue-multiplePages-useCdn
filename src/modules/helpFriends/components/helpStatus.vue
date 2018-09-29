@@ -5,8 +5,9 @@
     <countDown :endTime="basicInfo.endTime" v-if="status==='notHelpHe'"></countDown>
   </div>
   <div v-if="status==='notHelpHe'">
-    <p class="m-t">
-      <customBtn :opts="btn[status]" v-tap="{methods:helpHe}"></customBtn>
+    <p class="m-t" @click="helpHe">
+      <!-- <customBtn :opts="btn[status]" v-tap="{methods:helpHe}"></customBtn> -->
+      <customBtn :opts="btn[status]" ></customBtn>
     </p>
   </div>
   <div v-if="status==='hasHelpHe'">

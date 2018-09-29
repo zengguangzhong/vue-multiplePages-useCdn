@@ -4,9 +4,10 @@ import App from './App'
 
 // 移动端适配
 import 'amfe-flexible'
-// 解决移动端300ms点击延迟
-import vueTap from 'v-tap' // 引入插件
-Vue.use(vueTap) // 全局注册
+// 解决移动端300ms点击穿透
+import fastclick from 'fastclick'
+fastclick.attach(document.body)
+
 Vue.use({
   install(Vue) {
     Vue.component('customBtn', () => import('../../components/customBtn.vue'))

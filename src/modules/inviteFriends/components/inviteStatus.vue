@@ -32,7 +32,7 @@
       <p class="direct-bug-tip f14 color333 m-t">您可以选择直接购买:</p>
       <p class="m-t-l text-center">
         <customBtn>
-          <img src="../../../common/images/invite_btn.png" v-tap="{methods:showNotPopup}" alt="">
+          <img src="../../../common/images/invite_btn.png" @click="showNotPopup" alt="">
         </customBtn>
     	</p>
       <p class="or f14 m-t-xs text-center color-red">或</p>
