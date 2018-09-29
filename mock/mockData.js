@@ -7,6 +7,7 @@ module.exports = {
     endTime: '2018.10.1',
   // 需要助力的人数
     needFriendsNumber: 5,
+
   // 直接购买的价格
     directBuyPrice: 19.9,
     userInfo: {
