@@ -36,7 +36,8 @@ module.exports = buildEntries;
 设置多个入口，单页面Spa只有一个入口
 ```entry: buildEntries```
 但是有bug，修复并像该项目做着提了issue
-- ![vue-multiple-cli issues](https://user-gold-cdn.xitu.io/2018/9/27/16619cd430eb2535?w=1028&h=791&f=png&s=558309)
+
+![](https://user-gold-cdn.xitu.io/2018/9/29/16625d1d76ca1df1?w=862&h=772&f=png&s=339522)
 
 2. 高并发
 - [浅谈高并发](https://juejin.im/post/5bacd65a5188255c971fe5a2)
