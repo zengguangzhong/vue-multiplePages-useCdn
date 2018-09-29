@@ -1,3 +1,25 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [琥珀亲子-助力免单项目](#%E7%90%A5%E7%8F%80%E4%BA%B2%E5%AD%90-%E5%8A%A9%E5%8A%9B%E5%85%8D%E5%8D%95%E9%A1%B9%E7%9B%AE)
+  - [确立需求](#%E7%A1%AE%E7%AB%8B%E9%9C%80%E6%B1%82)
+  - [需求分析](#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90)
+  - [页面分析](#%E9%A1%B5%E9%9D%A2%E5%88%86%E6%9E%90)
+  - [时间计划](#%E6%97%B6%E9%97%B4%E8%AE%A1%E5%88%92)
+  - [确立基础架构](#%E7%A1%AE%E7%AB%8B%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84)
+  - [组件使用](#%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8)
+    - [asistMember](#asistmember)
+    - [countDown](#countdown)
+    - [customBtn](#custombtn)
+    - [eventDescription](#eventdescription)
+  - [页面逻辑重点](#%E9%A1%B5%E9%9D%A2%E9%80%BB%E8%BE%91%E9%87%8D%E7%82%B9)
+  - [总结](#%E6%80%BB%E7%BB%93)
+    - [待优化](#%E5%BE%85%E4%BC%98%E5%8C%96)
+  - [参考](#%E5%8F%82%E8%80%83)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # 琥珀亲子-助力免单项目
 
 ## 确立需求
@@ -222,6 +244,10 @@ inviteFriends和helpFriends中
 ## 总结
 1. 开启http2（多路复用）性能增加很多。
 2. 以前没怎么写过文档，写的有点乱，仍待学习。
+
+### 待优化
+1. 封装popup组件绑定到Vue原型链上
+2. 注释量不足
 
 ## 参考
 
