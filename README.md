@@ -68,9 +68,11 @@ for (let moduleName of modules) {
 
 module.exports = buildEntries;
 ```
+
 设置多个入口，单页面Spa只有一个入口
 ```entry: buildEntries```
-但是有bug，修复并像该项目做着提了issue
+
+缺陷：有bug，修复并像该项目做着提了issue
 
 ![](https://user-gold-cdn.xitu.io/2018/9/29/16625d1d76ca1df1?w=862&h=772&f=png&s=339522)
 
