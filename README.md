@@ -46,6 +46,10 @@
 1. 多页面
 - [github开源项目](https://github.com/xwpongithub/vue-multipage-cli)
 
+原因：
+1. 结构清晰，与项目匹配
+2. 多页面中每个单页面也可以做成单页spa，页面与页面间跳转通过href方式跳转
+
 原理：动态读取 `\src\modules `目录下文件夹，在
  entry: buildEntries,
 ```js
