@@ -77,6 +77,12 @@ module.exports = buildEntries;
 ![](https://user-gold-cdn.xitu.io/2018/9/29/16625991a7bd5860?w=950&h=579&f=png&s=60611) 
 ![](https://user-gold-cdn.xitu.io/2018/9/29/16625a04d8b844a0?w=852&h=477&f=png&s=38043)
 
+## 接口设计
+
+1. help 帮助他人
+2. helpOtherInfo  进入helpFriends页面所需的数据
+3. helpMeInfo  进入inviteFriends页面所需的数据
+
 ## 时间计划
 
 抛开其他的要求，单看页面还是很简单的，大概就是几个简单的H5页面。时间为一周，也比较充沛。
@@ -240,6 +246,8 @@ opts举例
 inviteFriends和helpFriends中
 1. 先执行init(),初始化数据
 2. 判断状态的函数computedStatus，判断出正确的status传递给相应组件
+3. 移动端适配采用阿里的flexible方案
+4. 防止点击穿透采用faskclick库
 
 ## 总结
 1. 开启http2（多路复用）性能增加很多。
