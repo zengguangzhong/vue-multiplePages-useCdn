@@ -20,7 +20,7 @@
 		<div v-if="status==='noPeopleAndStart'">
 			<p class="m-t-l text-center">
         <customBtn>
-          <img src="../../../common/images/invite_btn.png"  alt="">
+          <img src="@/common/images/invite_btn.png"  alt="">
         </customBtn>
     	</p>
     <p class="or f14 m-t-xs text-center color-red">或</p>
@@ -32,7 +32,7 @@
       <p class="direct-bug-tip f14 color333 m-t">您可以选择直接购买:</p>
       <p class="m-t-l text-center">
         <customBtn>
-          <img src="../../../common/images/invite_btn.png" @click="showNotPopup" alt="">
+          <img src="@/common/images/invite_btn.png" @click="showNotPopup" alt="">
         </customBtn>
     	</p>
       <p class="or f14 m-t-xs text-center color-red">或</p>
@@ -45,10 +45,10 @@
 </template>
 
 <script>
-import util from '../../../common/js/utils.js'
-import { getActiveInfo } from '../../../common/js/api.js'
+import util from '@/common/js/utils.js'
+import { getActiveInfo } from '@/common/js/api.js'
 import selfData from '../data.js'
-import popup from '../../../components/popup'
+import popup from '@/components/popup'
 export default {
   name: 'inviteStatus',
   components: { popup },

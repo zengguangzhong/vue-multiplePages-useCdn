@@ -26,10 +26,10 @@
 </template>
 
 <script>
-import util from '../../../common/js/utils.js'
-import { getHelpOtherList, help } from '../../../common/js/api.js'
+import util from '@/common/js/utils.js'
+import { getHelpOtherList, help } from '@/common/js/api.js'
 import selfData from '../data.js'
-import popup from '../../../components/popup'
+import popup from '@/components/popup'
 export default {
   name: 'helpStatus',
   components: { popup },

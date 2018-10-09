@@ -7,7 +7,7 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 var glob = require('glob')
-
+const currentPage = require('../config/app.config').currentPage
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
@@ -43,7 +43,7 @@ let pages = ((globalPath)=>{
 
   });
   return htmlFiles;
-})(utils.resolve('src')+'/modules/**/*.html');
+})(utils.resolve('src')+`/${currentPage}/**/*.html`);
 
 for (let entryName in pages) {
   let conf = {

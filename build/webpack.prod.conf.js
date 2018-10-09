@@ -9,6 +9,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var glob = require('glob');
+const currentPage = require('../config/app.config').currentPage
 
 var env = config.build.env
 
@@ -115,7 +116,7 @@ let pages = ((globalPath)=>{
 
   });
   return htmlFiles;
-})(utils.resolve('src')+'/modules/**/*.html');
+})(utils.resolve('src')+`/${currentPage}/**/*.html`);
 
 for (let entryName in pages) {
   let conf = {

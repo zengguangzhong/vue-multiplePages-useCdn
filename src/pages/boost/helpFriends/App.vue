@@ -1,7 +1,7 @@
 <template>
   <div class="app" @touchmove.prevent>
     <!-- 邀请好友助力 -->
-    <img lowsrc="../../common/images/index_banner.png" src="../../common/images/share.png" class="w-full" alt="">
+    <img lowsrc="@/common/images/index_banner.png" src="@/common/images/share.png" class="w-full" alt="">
     <helpStatus></helpStatus>
     <eventDescription :rules="selfData.activeRules"></eventDescription>
   </div>

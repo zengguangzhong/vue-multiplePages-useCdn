@@ -8,12 +8,12 @@ fastclick.attach(document.body)
 
 Vue.use({
   install(Vue) {
-    Vue.component('customBtn', () => import('../../components/customBtn.vue'))
+    Vue.component('customBtn', () => import('@/components/customBtn.vue'))
   }
 })
 
 import 'normalize.css/normalize.css'// A modern alternative to CSS resets
-import '../../common/styles/common.less'
+import '@/common/styles/common.less'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
