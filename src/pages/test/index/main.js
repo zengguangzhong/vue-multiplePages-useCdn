@@ -12,7 +12,7 @@ Vue.use({
     Vue.component('customBtn', () => import('../../../components/customBtn.vue'))
   }
 })
-
+console.log('aa')
 import 'normalize.css/normalize.css'// A modern alternative to CSS resets
 import '../../../common/styles/common.less'
 /* eslint-disable no-new */

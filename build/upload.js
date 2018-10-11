@@ -1,8 +1,8 @@
 const qiniu = require('qiniu')
 const fs = require('fs')
 const path = require('path')
-var rm = require('rimraf')
-var config = require('../config')
+// var rm = require('rimraf')
+// var config = require('../config')
 const cdnConfig = require('../config/app.config').cdn
 
 const {
@@ -49,9 +49,9 @@ const uploadAll = (dir, prefix) => {
     }
     doUpload(key, filePath)
       .then(resp => {
-        rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
-          if (err) throw err
-        })
+        // rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
+        //   if (err) throw err
+        // })
         console.log(resp)
       })
       .catch(err => console.error(err))
