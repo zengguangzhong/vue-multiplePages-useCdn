@@ -32,15 +32,15 @@ var hotMiddleware = require('webpack-hot-middleware')(compiler, {
   log: () => {}
 })
 // force page reload when html-webpack-plugin template changes
-compiler.plugin('compilation', function (compilation) {
-  compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
+compiler.plugin('compilation', function(compilation) {
+  compilation.plugin('html-webpack-plugin-after-emit', function(data, cb) {
     hotMiddleware.publish({ action: 'reload' })
     cb()
   })
 })
 
 // proxy api requests
-Object.keys(proxyTable).forEach(function (context) {
+Object.keys(proxyTable).forEach(function(context) {
   var options = proxyTable[context]
   if (typeof options === 'string') {
     options = { target: options }
@@ -62,7 +62,6 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
-
 var uri = 'http://localhost:' + port
 
 var _resolve
@@ -80,29 +79,28 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 
-app.all(['/getHelpOtherList','/getActiveInfo'], function(req, res, next){
-  res.set('Cache-Control','public,max-age=6')
-  if ((new Date().getTime() - req.headers['if-modified-since'] )< 10) {
+app.all(['/getHelpOtherList', '/getActiveInfo'], function(req, res, next) {
+  res.set('Cache-Control', 'public,max-age=6')
+  if ((new Date().getTime() - req.headers['if-modified-since']) < 10) {
     // 检查时间戳
     res.statusCode = 304
     res.end()
-  }
-  else {
-    var time =(new Date()).getTime().toString()
+  } else {
+    var time = (new Date()).getTime().toString()
     res.set('Last-Modified', time)
   }
   next()
 })
 
-app.post('/help', function (req, res) {  
-  res.send(require('../mock/mockData').help);
-});
-app.post('/getHelpOtherList', function (req, res) {  
-  res.send(require('../mock/mockData').helpOtherInfo);
-});
-app.post('/getActiveInfo', function (req, res) {  
-  res.send(require('../mock/mockData').helpMeInfo);
-});
+app.post('/help', function(req, res) {
+  res.send(require('../mock/mockData').help)
+})
+app.post('/getHelpOtherList', function(req, res) {
+  res.send(require('../mock/mockData').helpOtherInfo)
+})
+app.post('/getActiveInfo', function(req, res) {
+  res.send(require('../mock/mockData').helpMeInfo)
+})
 
 var server = app.listen(port)
 

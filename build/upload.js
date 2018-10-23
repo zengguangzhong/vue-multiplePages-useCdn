@@ -1,18 +1,30 @@
 const qiniu = require('qiniu')
 const fs = require('fs')
 const path = require('path')
-var rm = require('rimraf')
-var config = require('../config')
-const cdnConfig = require('../config/app.config').cdn
+const cdnConfig = require('../config/app.config')
+const OSS = require('ali-oss')
 
+// 阿里OSS上传
+const client = new OSS(cdnConfig.aLiOss)
+
+async function put(filePath, file) {
+  try {
+    const res = await client.put(file, filePath)
+    console.log(res)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+// 七牛上传
 const {
   ak, sk, bucket
-} = cdnConfig
+} = cdnConfig.qiNiuCdn
 
 const mac = new qiniu.auth.digest.Mac(ak, sk)
 
 const qiniuConfig = new qiniu.conf.Config()
-qiniuConfig.zone = qiniu.zone.Zone_z2
+qiniuConfig.zone = qiniu.zone[cdnConfig.qiNiuCdn.zone]
 
 const doUpload = (key, file) => {
   const options = {
@@ -36,26 +48,28 @@ const doUpload = (key, file) => {
   })
 }
 
+// 获取上传文件,上传函数
 const publicPath = path.join(__dirname, '../dist')
 
-// publicPath/resource/client/...
 const uploadAll = (dir, prefix) => {
   const files = fs.readdirSync(dir)
   files.forEach(file => {
     const filePath = path.join(dir, file)
-    const key = prefix ? `${prefix}/${file}` : file
+    let key = prefix ? `${prefix}/${file}` : file
+    key = key.replace(/\/{2,}/, '/').replace(/^\/{2,}/, '')
     if (fs.lstatSync(filePath).isDirectory()) {
       return uploadAll(filePath, key)
     }
-    doUpload(key, filePath)
-      .then(resp => {
-        rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
-          if (err) throw err
+    if (cdnConfig.use === 'ali') {
+      put(filePath, key)
+    } else {
+      doUpload(key, filePath)
+        .then(resp => {
+          console.log(resp)
         })
-        console.log(resp)
-      })
-      .catch(err => console.error(err))
+        .catch(err => console.error(err))
+    }
   })
 }
 
-uploadAll(publicPath)
+uploadAll(publicPath, cdnConfig.uploadPath.prefix)

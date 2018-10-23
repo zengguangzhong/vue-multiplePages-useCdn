@@ -8,7 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-var glob = require('glob');
+var glob = require('glob')
 const currentPage = require('../config/app.config').currentPage
 
 var env = config.build.env
@@ -35,7 +35,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       compress: {
         warnings: false
       },
-      sourceMap: config.build.productionSourceMap ? true : false
+      sourceMap: !!config.build.productionSourceMap
     }),
     // extract css into its own file
     new ExtractTextPlugin({
@@ -52,7 +52,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: function (module, count) {
+      minChunks: function(module, count) {
         // any required modules inside node_modules are extracted to vendor
         return (
           module.resource &&
@@ -103,23 +103,22 @@ if (config.build.bundleAnalyzerReport) {
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
-let pages = ((globalPath)=>{
-  let htmlFiles = {},
-    pageName;
+const pages = ((globalPath) => {
+  const htmlFiles = {}
+  let pageName
 
-  glob.sync(globalPath).forEach((pagePath)=>{
-    var basename = path.basename(pagePath, path.extname(pagePath));
-    pageName = basename;
-    htmlFiles[pageName] = {};
-    htmlFiles[pageName]['chunk'] = basename;
-    htmlFiles[pageName]['path'] = pagePath;
+  glob.sync(globalPath).forEach((pagePath) => {
+    var basename = path.basename(pagePath, path.extname(pagePath))
+    pageName = basename
+    htmlFiles[pageName] = {}
+    htmlFiles[pageName]['chunk'] = basename
+    htmlFiles[pageName]['path'] = pagePath
+  })
+  return htmlFiles
+})(utils.resolve('src') + `/${currentPage}/**/*.html`)
 
-  });
-  return htmlFiles;
-})(utils.resolve('src')+`/${currentPage}/**/*.html`);
-
-for (let entryName in pages) {
-  let conf = {
+for (const entryName in pages) {
+  const conf = {
     // 生成出来的html文件名
     filename: entryName + '.html',
     // 每个html的模版，这里多个页面使用同一个模版
@@ -133,12 +132,12 @@ for (let entryName in pages) {
       // more options:
       // https://github.com/kangax/html-minifier#options-quick-reference
     },
-    chunks: ['vendor','manifest',pages[entryName]['chunk']],
+    chunks: ['vendor', 'manifest', pages[entryName]['chunk']],
     // necessary to consistently work with multiple chunks via CommonsChunkPlugin
     chunksSortMode: 'dependency'
-  };
-  /*入口文件对应html文件（配置多个，一个页面对应一个入口，通过chunks对应）*/
-  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
+  }
+  /* 入口文件对应html文件（配置多个，一个页面对应一个入口，通过chunks对应）*/
+  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
 }
 
-module.exports = webpackConfig;
+module.exports = webpackConfig

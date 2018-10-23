@@ -1,4 +1,4 @@
-var path = require('path')
+// var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
@@ -7,7 +7,7 @@ var buildEntries = require('./build-entries')
 module.exports = {
   entry: buildEntries,
   output: {
-    path: config.build.assetsRoot, //编译后文件的存放目录
+    path: config.build.assetsRoot, // 编译后文件的存放目录
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
@@ -61,4 +61,4 @@ module.exports = {
       }
     ]
   }
-};
+}

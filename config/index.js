@@ -1,6 +1,6 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
-const cdnConfig = require('../config/app.config').cdn
+const cdnConfig = require('./app.config')
 
 module.exports = {
   build: {
@@ -9,7 +9,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     // 设置成七牛地址
-    assetsPublicPath: cdnConfig.host,
+    assetsPublicPath: (cdnConfig.uploadPath.host + cdnConfig.uploadPath.prefix).replace(/\/{2,}/, '/'),
     productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
