@@ -3,7 +3,7 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 var buildEntries = require('./build-entries')
-
+console.log(config)
 module.exports = {
   entry: buildEntries,
   output: {

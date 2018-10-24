@@ -10,6 +10,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var glob = require('glob')
 const currentPage = require('../config/app.config').currentPage
+const customConf = require('../config/app.config')
 
 var env = config.build.env
 
@@ -116,11 +117,12 @@ const pages = ((globalPath) => {
   })
   return htmlFiles
 })(utils.resolve('src') + `/${currentPage}/**/*.html`)
-
 for (const entryName in pages) {
   const conf = {
     // 生成出来的html文件名
     filename: entryName + '.html',
+    title: 'hahahah',
+    cdnLink: customConf.cdnLink,
     // 每个html的模版，这里多个页面使用同一个模版
     template: pages[entryName]['path'],
     // 自动将引用插入html
@@ -132,13 +134,14 @@ for (const entryName in pages) {
       // more options:
       // https://github.com/kangax/html-minifier#options-quick-reference
     },
-    chunks: ['vendor', 'manifest', pages[entryName]['chunk'], 'vue'],
+    chunks: ['vendor', 'manifest', pages[entryName]['chunk']],
     // necessary to consistently work with multiple chunks via CommonsChunkPlugin
     chunksSortMode: 'dependency'
   }
-  console.log(conf)
   /* 入口文件对应html文件（配置多个，一个页面对应一个入口，通过chunks对应）*/
   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
 }
-
+webpackConfig.plugins.push(new webpack.ProvidePlugin({
+  'Router': customConf.cdnLink.vueRouter
+}))
 module.exports = webpackConfig
