@@ -7,7 +7,7 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 var glob = require('glob')
-const currentPage = require('../config/app.config').currentPage
+const cdnConfig = require('../config/app.config')
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function(name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
@@ -42,12 +42,14 @@ const pages = ((globalPath) => {
     htmlFiles[pageName]['path'] = pagePath
   })
   return htmlFiles
-})(utils.resolve('src') + `/${currentPage}/**/*.html`)
+})(utils.resolve('src') + `/${cdnConfig.currentPage}/**/*.html`)
 
 for (const entryName in pages) {
   const conf = {
     // 生成出来的html文件名
     filename: entryName + '.html',
+    title: 'hahahah',
+    cdnLink: cdnConfig.cdnLink,
     // 每个html的模版，这里多个页面使用同一个模版
     template: pages[entryName]['path'],
     // 自动将引用插入html
@@ -58,5 +60,8 @@ for (const entryName in pages) {
   /* 入口文件对应html文件（配置多个，一个页面对应一个入口，通过chunks对应）*/
   devConfig.plugins.push(new HtmlWebpackPlugin(conf))
 }
-
+devConfig.plugins.push(new webpack.ProvidePlugin({
+  'Router': 'vue-router',
+  'vue-router': 'Router'
+}))
 module.exports = devConfig

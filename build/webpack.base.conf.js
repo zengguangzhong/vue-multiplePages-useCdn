@@ -22,6 +22,11 @@ module.exports = {
       'api': utils.resolve('src/api')
     }
   },
+  externals: {
+    // 后面是原本使用的全局变量名，前面的是引入的包名（就是import xx from 'echart'），然后我们实际写代码时候，用的是xx这个变量名。
+    'vue': 'Vue',
+    'vue-router': 'VueRouter'
+  },
   module: {
     rules: [
       {

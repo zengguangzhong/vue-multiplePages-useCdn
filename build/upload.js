@@ -9,8 +9,8 @@ const client = new OSS(cdnConfig.aLiOss)
 
 async function put(filePath, file) {
   try {
-    const res = await client.put(file, filePath)
-    console.log(res)
+    await client.put(file, filePath)
+    console.log(file + ' 上传成功')
   } catch (err) {
     console.log(err)
   }

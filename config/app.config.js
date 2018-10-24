@@ -2,12 +2,12 @@
  * @Author: Jerry.chenshisong
  * @Date: 2018-09-27 15:06:58
  * @Last Modified by: Jerry.chenshisong
- * @Last Modified time: 2018-10-23 17:01:56
+ * @Last Modified time: 2018-10-24 15:40:59
  * 多页面配置及打包上传配置
  */
 
 const currentProject = 'test'
-const use = 'qiniu' // ali 或 qiniu
+const use = 'ali' // ali 或 qiniu
 
 const config = {
   currentPage: `pages/${currentProject}`,
@@ -21,12 +21,16 @@ const config = {
     prefix: '/cdn/test/'
   },
   aLiOss: {
-    host: 'https://css-test-cdn.oss-cn-beijing.aliyuncs.com',
-    accessKeyId: 'LTAIvroOKv2MKWUF',
-    accessKeySecret: 'Yi1Nmxn0nwKw8RqUdOWMIpYLX1tfMH',
-    bucket: 'css-test-cdn',
-    region: 'oss-cn-beijing',
+    host: 'https://hpvip.oss-cn-hangzhou.aliyuncs.com',
+    accessKeyId: 'LTAIop8DUZrSMEMn',
+    accessKeySecret: 'Yi8BUqh44mEsqZNGi9x77942FLNOUM',
+    bucket: 'hpvip',
+    region: 'oss-cn-hangzhou',
     prefix: '/cdn/test/'
+  },
+  cdnLink: {
+    vue: 'https://cdn.bootcss.com/vue/2.3.4/vue.min.js',
+    vueRouter: 'https://cdn.bootcss.com/vue-router/2.3.1/vue-router.min.js'
   }
 }
 
