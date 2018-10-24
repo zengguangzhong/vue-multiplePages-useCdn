@@ -1,7 +1,7 @@
 var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
-var config = require('../config')
+var config = require('../config/index')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -48,7 +48,6 @@ for (const entryName in pages) {
   const conf = {
     // 生成出来的html文件名
     filename: entryName + '.html',
-    title: 'hahahah',
     cdnLink: customConf.cdnLink,
     // 每个html的模版，这里多个页面使用同一个模版
     template: pages[entryName]['path'],

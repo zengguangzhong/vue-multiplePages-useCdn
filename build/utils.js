@@ -1,7 +1,7 @@
 var path = require('path')
 var config = require('../config/index')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-console.log(config, 'adfs')
+
 exports.resolve = function(dir) {
   return path.join(__dirname, '..', dir)
 }

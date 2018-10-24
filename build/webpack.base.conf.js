@@ -1,9 +1,9 @@
 // var path = require('path')
 var utils = require('./utils')
-var config = require('../config')
+var config = require('../config/index')
 var vueLoaderConfig = require('./vue-loader.conf')
 var buildEntries = require('./build-entries')
-console.log(config)
+
 module.exports = {
   entry: buildEntries,
   output: {

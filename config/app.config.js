@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const selfCdn = require('./cdn.conf/index')
+const selfCdn = require('./cdnConf/index')
 // 设置默认活动页的路径，优先级：命令中参数 > currentProject配置 ，如果都不存在，则打包pages中第一个活动
 
 const currentProject = 'test'
