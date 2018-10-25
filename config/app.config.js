@@ -9,21 +9,35 @@ const use = 'ali' // ali 或 qiniu
 /* 获取所有模块的文件夹名*/
 const modules = fs.readdirSync(path.join(__dirname, '..', 'src/pages'))
 const argvPath = process.argv.splice(2)[0]
-let realPath
+let realProject
 if (modules.indexOf(argvPath) !== -1) {
-  realPath = argvPath
+  realProject = argvPath
 } else {
   if (modules.indexOf(currentProject) !== -1) {
-    realPath = currentProject
+    realProject = currentProject
   } else {
-    realPath = modules[0]
+    realProject = modules[0]
   }
 }
 
-console.log(`您正在 ${process.env.NODE_ENV === 'development' ? '开发/上传' : '打包/上传'} ${realPath} 活动页的页面`)
+// 未设置则置空
+if (typeof selfCdn[realProject] !== 'object' || Object.keys(selfCdn[realProject]).length === 0) {
+  selfCdn[realProject] = {
+    js: {}, css: {}
+  }
+}
+
+// 生成externals配置
+const externalsConf = {}
+const tempjs = selfCdn[realProject].js
+for (const key in tempjs) {
+  externalsConf[tempjs[key].packageName] = key
+}
+
+console.log(`您正在操作 ${realProject} 页面`)
 
 const config = {
-  currentProject: `pages/${currentProject}`,
+  currentProject: `pages/${realProject}`,
   use,
   qiNiuCdn: {
     host: 'http://pfo0kk2j7.bkt.clouddn.com/',
@@ -41,7 +55,8 @@ const config = {
     region: 'oss-cn-hangzhou',
     prefix: '/cdn/test/'
   },
-  cdnLink: selfCdn[currentProject]
+  cdnLink: selfCdn[realProject],
+  externalsConf: externalsConf
 }
 
 config.uploadPath = use === 'ali' ? config.aLiOss : config.qiNiuCdn

@@ -42,7 +42,7 @@ const pages = ((globalPath) => {
     htmlFiles[pageName]['path'] = pagePath
   })
   return htmlFiles
-})(utils.resolve('src') + `/${customConf.currentPage}/**/*.html`)
+})(utils.resolve('src') + `/${customConf.currentProject}/**/*.html`)
 
 for (const entryName in pages) {
   const conf = {
@@ -59,8 +59,5 @@ for (const entryName in pages) {
   /* 入口文件对应html文件（配置多个，一个页面对应一个入口，通过chunks对应）*/
   devConfig.plugins.push(new HtmlWebpackPlugin(conf))
 }
-devConfig.plugins.push(new webpack.ProvidePlugin({
-  'Router': 'vue-router',
-  'vue-router': 'Router'
-}))
+
 module.exports = devConfig

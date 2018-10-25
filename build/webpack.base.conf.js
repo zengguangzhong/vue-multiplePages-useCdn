@@ -3,6 +3,7 @@ var utils = require('./utils')
 var config = require('../config/index')
 var vueLoaderConfig = require('./vue-loader.conf')
 var buildEntries = require('./build-entries')
+const customConf = require('../config/app.config')
 
 module.exports = {
   entry: buildEntries,
@@ -13,10 +14,7 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
-  externals: {
-    'vue': 'Vue',
-    'vue-router': 'VueRouter'
-  },
+  externals: customConf.externalsConf,
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
