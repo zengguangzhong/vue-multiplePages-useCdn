@@ -2,10 +2,10 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [高性能灵活的多页面Vue脚手架](#%E9%AB%98%E6%80%A7%E8%83%BD%E7%81%B5%E6%B4%BB%E7%9A%84%E5%A4%9A%E9%A1%B5%E9%9D%A2vue%E8%84%9A%E6%89%8B%E6%9E%B6)
-  - [特点/优点](#%E7%89%B9%E7%82%B9%E4%BC%98%E7%82%B9)
-  - [使用](#%E4%BD%BF%E7%94%A8)
-  - [解析](#%E8%A7%A3%E6%9E%90)
+- [高性能灵活的多页面Vue脚手架](#高性能灵活的多页面vue脚手架)
+  - [特点/优点](#特点优点)
+  - [使用](#使用)
+  - [解析](#解析)
     - [config/app.config.js](#configappconfigjs)
     - [config/cdnConf](#configcdnconf)
     - [src/](#src)
@@ -26,7 +26,7 @@
 
 1. 在 `src/pages` 创建新项目，例： `hello`
 2. 在 `config` 中的 `app.config.js` 配置项目或在命令行中直接指定参数
-3. 在 `config/cdnConf` 创建与项目名相同的js文件，例： `hello.js`，配置cdn，配置格式见  [config/cdnConf](#config/cdnConf)
+3. 在 `config/cdnConf` 创建与项目名相同的js文件，例： `hello.js`，配置cdn，配置格式见  [config/cdnConf](#configcdnconf)
 4. 开发 `yarn dev` 或 `npm run dev`，后皆可接项目名称 ，例：`yarn dev hello` 则开发 `hello` 项目
 5. 打包 `yarn build` 或 `npm run build`，后皆可接项目名称 ，例：`yarn build hello` 则打包 `hello` 项目
 
