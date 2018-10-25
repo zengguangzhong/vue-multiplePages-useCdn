@@ -24,9 +24,9 @@
 
 ## 使用
 
-1. 在 `src/pages` 创建新项目，例： `hello`
+1. 在 `src/project` 创建新项目，例： `hello`
 2. 在 `config` 中的 `app.config.js` 配置项目或在命令行中直接指定参数
-3. 在 `config/cdnConf` 创建与项目名相同的js文件，例： `hello.js`，配置cdn，配置格式见  [config/cdnConf](#configcdnconf)
+3. 在 `config/cdnConf` 创建与项目名相同的js文件，例： `hello.js`，配置cdn，配置格式见  [config/cdnConf](#configcdnconf)，如果不配置则不适用外部cdn
 4. 开发 `yarn dev` 或 `npm run dev`，后皆可接项目名称 ，例：`yarn dev hello` 则开发 `hello` 项目
 5. 打包 `yarn build` 或 `npm run build`，后皆可接项目名称 ，例：`yarn build hello` 则打包 `hello` 项目
 
@@ -36,8 +36,8 @@
 
 ```js
   /**
-   * 配置需要开发或打包的项目，项目名为 src/pages 的文件夹名
-   * 如果命令参数中指定了项目则根据命令参数，否则是这里的配置，如果都不存在则按 src/pages 下的第一个目录为准
+   * 配置需要开发或打包的项目，项目名为 src/project 的文件夹名
+   * 如果命令参数中指定了项目则根据命令参数，否则是这里的配置，如果都不存在则按 src/project 下的第一个目录为准
    * **/
 const currentProject = 'test'
 /**
@@ -49,7 +49,7 @@ const use = 'ali' // ali 或 qiniu
 
 ### config/cdnConf
 
-配置cdn链接，文件名与项目名即 src/pages 的文件夹名相同
+配置cdn链接，文件名与项目名即 src/project 的文件夹名相同
 
 格式：
 
@@ -91,7 +91,7 @@ import VueRouter from 'vue-router' // 同上，其他类库也相似
 │  ├─js
 │  └─styles
 ├─components                   所有项目的公共组件
-└─pages                        项目
+└─project                        项目
     ├─boost                    项目1（多页 example）
     │  ├─helpFriends             页面1
     │  ├─index                   页面2 

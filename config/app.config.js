@@ -1,13 +1,13 @@
 const path = require('path')
 const fs = require('fs')
 const selfCdn = require('./cdnConf/index')
-// 设置默认活动页的路径，优先级：命令中参数 > currentProject配置 ，如果都不存在，则打包pages中第一个活动
+// 设置默认活动页的路径，优先级：命令中参数 > currentProject配置 ，如果都不存在，则打包project中第一个活动
 
 const currentProject = 'test'
 const use = 'ali' // ali 或 qiniu
 
 /* 获取所有模块的文件夹名*/
-const modules = fs.readdirSync(path.join(__dirname, '..', 'src/pages'))
+const modules = fs.readdirSync(path.join(__dirname, '..', 'src/project'))
 const argvPath = process.argv.splice(2)[0]
 let realProject
 if (modules.indexOf(argvPath) !== -1) {
@@ -37,7 +37,7 @@ for (const key in tempjs) {
 console.log(`您正在操作 ${realProject} 页面`)
 
 const config = {
-  currentProject: `pages/${realProject}`,
+  currentProject: `project/${realProject}`,
   use,
   qiNiuCdn: {
     host: 'http://pfo0kk2j7.bkt.clouddn.com/',
