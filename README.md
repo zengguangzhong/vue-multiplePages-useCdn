@@ -2,14 +2,15 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [高性能灵活的多页面Vue脚手架](#高性能灵活的多页面vue脚手架)
-  - [特点/优点](#特点优点)
-  - [使用](#使用)
-  - [解析](#解析)
+- [高性能灵活的多页面Vue脚手架](#%E9%AB%98%E6%80%A7%E8%83%BD%E7%81%B5%E6%B4%BB%E7%9A%84%E5%A4%9A%E9%A1%B5%E9%9D%A2vue%E8%84%9A%E6%89%8B%E6%9E%B6)
+  - [特点/优点](#%E7%89%B9%E7%82%B9%E4%BC%98%E7%82%B9)
+  - [使用](#%E4%BD%BF%E7%94%A8)
+  - [解析](#%E8%A7%A3%E6%9E%90)
     - [config/app.config.js](#configappconfigjs)
     - [config/cdnConf](#configcdnconf)
     - [src/](#src)
     - [mock](#mock)
+  - [备注](#%E5%A4%87%E6%B3%A8)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -17,7 +18,7 @@
 
 ## 特点/优点
 
-1. 可以创建多个单独项目，每个单独项目可多页面可单页
+1. 可以创建多个单独项目，每个单独项目可多页面可单页（`/src/project` 下是不同项目，`/src/project/...` 下是该项目不同页面）
 2. 配置CDN链接，公共资源使用CDN
 3. 打包完成后非CDN资源可上传至七牛云存储空间或阿里云OSS，部署时只需要html文件即可
 4. 充分的利用了缓存，性能高，可适用于经常需要做活动的 `H5` 页面
@@ -45,7 +46,34 @@ const currentProject = 'test'
    * 阿里云OSS或七牛云的具体配置在下面的config中配置
    * **/
 const use = 'ali' // ali 或 qiniu
+
+const config = {
+  currentProject: `project/${realProject}`,
+  use,
+  // 七牛相关配置
+  qiNiuCdn: {
+    host: '',
+    bucket: '',
+    ak: '',
+    sk: '',
+    zone: '',
+    prefix: ''  // 路径前可自定义prefix
+  },
+  // 阿里OSS相关配置
+  aLiOss: {
+    host: '',
+    accessKeyId: '',
+    accessKeySecret: '',
+    bucket: '',
+    region: '',
+    prefix: '' // 路径前可自定义prefix
+  },
+  cdnLink: selfCdn[realProject],
+  externalsConf: externalsConf
+}
+
 ```
+
 
 ### config/cdnConf
 
@@ -106,3 +134,7 @@ import VueRouter from 'vue-router' // 同上，其他类库也相似
 ### mock
 
 开发环境基于 `express` 搭建，可模拟后端数据或接口，可使用 `mock.js`，例子中没有使用，后期我再加上去试试
+
+## 备注
+
+有需要的小伙伴如果有问题可以提 `issue` 哦，我会及时解决的

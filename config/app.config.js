@@ -40,20 +40,20 @@ const config = {
   currentProject: `project/${realProject}`,
   use,
   qiNiuCdn: {
-    host: 'http://pfo0kk2j7.bkt.clouddn.com/',
-    bucket: 'hupo-boost-free',
-    ak: 'd5tED2TwJGtf3gDprAVaau65giIhZGrBqOWW3OV6',
-    sk: 'LmnpMQ1Mg5G0Sdpjc3ZcKxOu_VbJccg3lBnaWV9u',
-    zone: 'Zone_z2',
-    prefix: '/cdn/test/'
+    host: '',
+    bucket: '',
+    ak: '',
+    sk: '',
+    zone: '',
+    prefix: ''
   },
   aLiOss: {
-    host: 'https://hpvip.oss-cn-hangzhou.aliyuncs.com',
-    accessKeyId: 'LTAIop8DUZrSMEMn',
-    accessKeySecret: 'Yi8BUqh44mEsqZNGi9x77942FLNOUM',
-    bucket: 'hpvip',
-    region: 'oss-cn-hangzhou',
-    prefix: '/cdn/test/'
+    host: '',
+    accessKeyId: '',
+    accessKeySecret: '',
+    bucket: '',
+    region: '',
+    prefix: ''
   },
   cdnLink: selfCdn[realProject],
   externalsConf: externalsConf
